@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
+    <Domain Id="any">
+        <General>
+            <Interfaces>
+                <NetworkInterface autodetermine="true" />
+            </Interfaces>
+            <AllowMulticast>true</AllowMulticast>
+            <EnableMulticastLoopback>true</EnableMulticastLoopback>
+        </General>
+        <Partitioning>
+            <IgnoredPartitions>
+                <IgnoredPartition DCPSPartitionTopic=".rt/chatter" /> <!--more info at https://github.com/eclipse-cyclonedds/cyclonedds/issues/883#issuecomment-883173526 -->
+            </IgnoredPartitions>
+        </Partitioning>
+    </Domain>
+</CycloneDDS>
+
+<!-- This wil hide topics from this computer to others but it wont ignore topics coming from other PCs -->
