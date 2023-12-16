@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
     <Domain Id="any">
-    <General>
-      <AllowMulticast>false</AllowMulticast>
-      <EnableMulticastLoopback>false</EnableMulticastLoopback>
-    </General>
-    <Discovery>
-      <ParticipantIndex>auto</ParticipantIndex>
-      <Peers>
-        <Peer Address="192.168.1.19"/>
-        <Peer Address="192.168.1.110"/>        
-      </Peers>
-    </Discovery>
-  </Domain>
+        <General>
+            <Interfaces>
+                <NetworkInterface autodetermine="true" />
+            </Interfaces>
+            <AllowMulticast>false</AllowMulticast>
+            <EnableMulticastLoopback>true</EnableMulticastLoopback>
+        </General>
+        <Discovery>
+            <ParticipantIndex>auto</ParticipantIndex>
+            <Peers>
+                <Peer Address="127.0.0.1"/>
+                <Peer Address="robot ip 1"/> <!-- this config and your ip must also be applied in robot 1, 2, etc ..  -->
+                <Peer Address="robot ip 2"/>
+            </Peers>
+        </Discovery>   
+    </Domain>
 </CycloneDDS>
